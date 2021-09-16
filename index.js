@@ -127,3 +127,36 @@ function getNextPalindromeDate(date) {
 
     return [ctr, nextDate];
 }
+
+
+var dateInput = document.querySelector("#bday-input");
+var showBtn = document.querySelector("#show-btn");
+var result = document.querySelector("#result");
+
+function clickHandler() {
+    var bdayStr = dateInput.Value;
+
+    if(bdayStr !== '') {
+        var listOfDate = bdayStr.split('-');
+        var date = {
+            day: Number(listOfDate[2]),
+            month: Number(listOfDate[1]),
+            year: Number(listOfDate[0])
+        };
+
+        var isPalindrome = checkPalindromeForAllDateFormats(date);
+
+        if (isPalindrome) {
+            result.textContent = "yay"
+        } else {
+            var [ctr, nextDate] = getNextPalindromeDate(date);
+            result.textContent = 'The next Palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${ctr} days'
+        }
+
+    
+    }
+}
+
+
+
+showBtn.addEventListener('click', clickHandler);
