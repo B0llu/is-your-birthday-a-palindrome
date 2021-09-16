@@ -7,4 +7,11 @@ function reversedStr(str) {
     return str.split('').reverse().join('')
 }
 
-console.log(reversedStr('Hello'));
+function isPalindrome(str) {
+    var reverse = reversedStr(str);
+    if ( str === reverse) {
+        return true;
+    } else 
+    return false;
+}
+
