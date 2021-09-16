@@ -122,16 +122,8 @@ function getNextPalindromeDate(date) {
         if (isPalindrome) {
             break;
         }
-        nextDate = getNextDate(date);
+        nextDate = getNextDate(nextDate);
     }
 
     return [ctr, nextDate];
 }
-
-var date = {
-    day: 31,
-    month: 12,
-    year: 2021
-};
-
-console.log(getNextPalindromeDate(date));
