@@ -113,7 +113,19 @@ function getNextDate(date) {
 }
 
 function getNextPalindromeDate(date) {
+    var ctr = 0;
+    var nextDate = getNextDate(date);
 
+    while(1) {
+        ctr++;
+        var isPalindrome = checkPalindromeForAllDateFormats(nextDate);
+        if (isPalindrome) {
+            break;
+        }
+        nextDate = getNextDate(date);
+    }
+
+    return [ctr, nextDate];
 }
 
 var date = {
@@ -122,4 +134,4 @@ var date = {
     year: 2021
 };
 
-console.log(getNextDate(date));
+console.log(getNextPalindromeDate(date));
