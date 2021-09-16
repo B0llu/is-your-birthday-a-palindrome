@@ -133,11 +133,12 @@ var dateInput = document.querySelector("#bday-input");
 var showBtn = document.querySelector("#show-btn");
 var result = document.querySelector("#result");
 
-function clickHandler() {
-    var bdayStr = dateInput.Value;
+function clickHandler(e) {
+    var bdayStr = dateInput.value;
 
-    if(bdayStr !== '') {
+    if ( bdayStr !== '') {
         var listOfDate = bdayStr.split('-');
+        
         var date = {
             day: Number(listOfDate[2]),
             month: Number(listOfDate[1]),
@@ -146,15 +147,14 @@ function clickHandler() {
 
         var isPalindrome = checkPalindromeForAllDateFormats(date);
 
-        if (isPalindrome) {
-            result.textContent = "yay"
+        if(isPalindrome) {
+            result.textContent = "Yay! Your Birthday Is a Palindrome!!"
         } else {
             var [ctr, nextDate] = getNextPalindromeDate(date);
-            result.textContent = 'The next Palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${ctr} days'
+            result.textContent = `The Next Palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${ctr} days!`
         }
-
-    
     }
+
 }
 
 
