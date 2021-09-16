@@ -48,10 +48,23 @@ function getAllDateFormats(date) {
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
 }
 
+function checkPalindromeForAllDateFormats(date) {
+    var listOfPalindromes = getAllDateFormats(date);
+    var isItPalindrome = false;
+    for ( var i = 0; i < listOfPalindromes.length; i++) {
+        if (isPalindrome(listOfPalindromes[i])) {
+            isItPalindrome = true;
+            break;
+        }
+    }
+
+    return isItPalindrome;
+}
+
 var date = {
     day: 2,
     month: 11,
-    year: 2021
+    year: 2020
 };
 
-console.log(getAllDateFormats(date));
+console.log(checkPalindromeForAllDateFormats(date));
